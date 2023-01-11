@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.reg_btn {
+    width: 150px;
+    display: block;
+    padding: 10px;
+    margin: 10px 0 10px 10px;
+}
+form {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+    background-color: #163687;
+    margin: 10px 0 10px 10px;
+}
+.close_form {
+    display: none;
+}
+.open_form {
+    display: inline-block;
+}
+.close {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+.close a {
+    position: absolute;
+    top: 23px;
+    left: 434px;
+    text-decoration: none;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+form h2 {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    width: 300px;
+    height: 66px;
+    margin: 50px 0 25px 90px;
+    text-align: center;
+}
+input, .btn {
+    display: block;
+    background-color: #ffffff;
+    width: 368px;
+    height: 60px;
+    margin-left: 60px;
+}
+input {
+    margin-bottom: 15px;
+    padding-left: 17px;
+    font-size: 14px;
+}
+input:focus {
+    border: 2px solid #ff0000;
+    color: #ff0000;
+}
+.btn {
+    text-align: center;
+    padding-top: 20px;
+    background-color:#FED133;
+    color: #000;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 74px;
+}
