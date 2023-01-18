@@ -1,25 +1,23 @@
-// Вправа №1 Копія масива через метод concat()
+// Вправа №1 Копія масива 
+// через метод slice()
 
 const arr = ['one', 10, 'name', 5, 'Nastya', 9];
-
-function arrayCopy () {
-    return arr.concat();
+function arrayCopy (array) {
+    return array.slice();
 }
-const newCopyArr = arrayCopy();
+const newCopyArr = arrayCopy(arr);
 console.log(newCopyArr);
 
 // Вправа №2 
-
 const arrTwo = ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'];
 
-function arrayJoin (arr) {
-    return arr.join(' ');
+function arrayJoin (arr, delimite) {
+    return arr.join(delimite);
 }
-const arrNewJoin = arrayJoin(arrTwo); 
+const arrNewJoin = arrayJoin(arrTwo, ' '); 
 console.log('"' + arrNewJoin + '"');
 
 //  Вправа №3 
-
 const arrThree = [NaN, 0, 33, false, -51, '', undefined, 75, null];
 function removeFalsy (arr) {
     return arr.filter((e) => e);
@@ -27,64 +25,55 @@ function removeFalsy (arr) {
 const arrNoFalsy = removeFalsy(arrThree);
 console.log(arrNoFalsy);
 
-//  Вправа №4 Два варіанта
-
-// Через цикл for
-function getWord () {
+//  Вправа №4 залишив метод concat()
+function getWord2 () {
     const arr1 = ['e', null, 'r'];
     const arr2 = ['g', 'y'];
-    const arrUnite = [];
-    for (let i = 0; i< arr1.length; i++) {
-       arrUnite.push(arr1[i]);
-    }
-    for (let j = 0; j < arr2.length; j++) {
-        arrUnite.push(arr2[j]);
-    }
+    const arrUnite = arr1.concat(arr2);
+
     arrUnite.unshift('p', 'o');
     arrUnite.push('m', 'o', 'd', 'e' );
     arrUnite.splice(2, 0, 'w');
     arrUnite.splice(6,2);
     arrUnite[6] = 'c';
-    return arrayJoin(removeFalsy(arrUnite));
+    return arrayJoin(removeFalsy(arrUnite), ' ');
 }
-const arrNewUnite = getWord();
-console.log(arrNewUnite);
+console.log(getWord2());
 
-// Через метод concat()
-function getWord2 () {
-    const arr1 = ['e', null, 'r'];
-    const arr2 = ['g', 'y'];
-    const arrUnite = [];
-    const newArr = arrUnite.concat(arr1);
-    const newArr2 = newArr.concat(arr2);
+// Вправа №5
+const mas = [['foo', 1], ['baz', 2], ['bar', 3]];
+const ob = {};
 
-    newArr2.unshift('p', 'o');
-    newArr2.push('m', 'o', 'd', 'e' );
-    newArr2.splice(2, 0, 'w');
-    newArr2.splice(6,2);
-    newArr2[6] = 'c';
-    return arrayJoin(removeFalsy(newArr2));
-}
-const arrNewUnite2 = getWord2();
-console.log(arrNewUnite2);
+function fromPairs (array) {
+    const objectFromArr = {};
 
-// Вправа №5 Ще думаю як зробити...
-
-// Вправа №6 
-
-function chunk(array, size) {
-    const newArr = [];
-    if (size === 3) {
-        const part1 = array.splice(0,3);
-        const part2 = array.splice(0,3);
-        const part3 = array.splice(0,2); 
-        newArr[0] = part1;
-        newArr[1] = part2;
-        newArr[2] = part3;
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+           objectFromArr[array[i]] = array[i][j];
+        }
     }
-    return newArr;  
+    return objectFromArr;
 }
-chunk(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], 3);
-console.log(JSON.stringify(chunk(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], 3)));
+console.log(fromPairs(mas));
+
+// Вправа №6 Через цикл не виходить чомусь поділити масив
+
+// function chunk(array, size) {
+//     const newArr = [];
+//     const newArr2 = [];
+//     for (let i = 0; i < array.length; i++) {
+//         if ((i % size) === 0) {
+//             newArr.push(i);
+//         }
+//     }
+//     newArr2.push(array.slice(newArr[0], newArr[1]));
+//     newArr2.push(array.slice(newArr[1], newArr[2]));
+//     newArr2.push(array.slice(newArr[2]));
+//     return newArr2;
+// }
+// const arrSlice = chunk(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], 3);
+// console.log(arrSlice);
+// console.log(JSON.stringify(arrSlice));
+
 
 // Вправа №7 Ще думаю як зробити...
