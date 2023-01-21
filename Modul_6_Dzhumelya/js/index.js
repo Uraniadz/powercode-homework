@@ -89,21 +89,32 @@
 // Вправа №7 
 
 function getIntersections (...arr) {
-    const result = [];
-    const find = [];
+    const check = [];
     const part = [];
-    part.push(...arr);
+    let result = [];
 
     for (let i = 0; i < arr.length; i++) {
-        find.push(...arr);
-        for (let j = 0; j < part.length; j++) {
-                if (part[i][j] === find[1][0] || part[i][j] === find[1][1] ||  part[i][j] === find[1][2] ) {
-                    result.push(part[i][j]);
-                }
+        check.push(arr[i]);
+        if (check[0]) {
+            part.push(arr[0][i]);
+        }      
+        check[i] = [];
+        if (check[i]) {
+            check.push(arr[i][i]);
         }
-    return result;
     }
+    for (let j = 0; j < check.length; j++) {
+        for (let k = 0; k < check[j].length; k++) {
+            // console.log(check[j][k]);
+            // console.log(part[k]);
+           if (check[j][k] === part[0] || check[j][k] === part[1] || check[j][k] === part[2]) {
+            result.push(check[j][k]);
+           }
+        }
+    }
+    return result;
 }
+
 const arr1 = [1, 2];
 const arr2 = [2, 3];
 
