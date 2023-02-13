@@ -41,7 +41,20 @@
 // console.log(getWord2());
 
 // Вправа №5
-// Вчитель
+// Вчитель через reduce()
+// const mas2 = [['foo', 1], ['baz', 2], ['bar', 3]];
+
+// function fromPairs (array) {
+   
+//     return array.reduce((acc, currValue) => {
+//         return {
+//             ...acc,
+//             [currValue[0]]: currValue[1]
+//         }
+//     }, {});
+// }
+// console.log(fromPairs(mas2));
+
 // const mas2 = [['foo', 1], ['baz', 2], ['bar', 3], ['car', 5]];
 
 // function fromPairs (array) {
@@ -70,6 +83,7 @@
 // console.log(ob);
 
 // Вправа №6 
+// через цикл
 // function chunk(array, size) {
 //     const result = [];
 //     let part = [];    
@@ -89,30 +103,48 @@
 // Вправа №7 
 
 function getIntersections (...arr) {
-    const check = [];
-    const part = [];
-    let result = [];
+    const arrWithoutFirstIndex = arr.slice(1).flat(); 
+    const arrNew = [];
+    const arrFirst = arr[0].filter((e) => {
+        if (e === arrWithoutFirstIndex[0]) {
+            if (arrNew[0] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+        if (e === arrWithoutFirstIndex[1]) {
+            if (arrNew[1] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+        if (e === arrWithoutFirstIndex[2]) {
+            if (arrNew[2] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+        if (e === arrWithoutFirstIndex[3]) {
+            if (arrNew[3] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+        if (e === arrWithoutFirstIndex[4]) {
+            if (arrNew[4] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+        if (e === arrWithoutFirstIndex[5]) {
+            if (arrNew[5] !== e) {
+                arrNew.push(e);
+            }
+            return e;
+        }
+    });
 
-    for (let i = 0; i < arr.length; i++) {
-        check.push(arr[i]);
-        if (check[0]) {
-            part.push(arr[0][i]);
-        }      
-        check[i] = [];
-        if (check[i]) {
-            check.push(arr[i][i]);
-        }
-    }
-    for (let j = 0; j < check.length; j++) {
-        for (let k = 0; k < check[j].length; k++) {
-            // console.log(check[j][k]);
-            // console.log(part[k]);
-           if (check[j][k] === part[0] || check[j][k] === part[1] || check[j][k] === part[2]) {
-            result.push(check[j][k]);
-           }
-        }
-    }
-    return result;
+    return arrNew;
 }
 
 const arr1 = [1, 2];
@@ -125,6 +157,9 @@ const arr5 = ['b', 'e', 'c', '5'];
 const arr6 = ['b', 'b', 'e'];
 const arr7 = ['b', 'c', 'e'];
 const arr8 = ['b', 'e', 'c'];
+
 console.log(getIntersections(arr1, arr2));
 console.log(getIntersections(arr3, arr4, arr5));
 console.log(getIntersections(arr6, arr7, arr8));
+
+console.log(getIntersections([1,2,3,4,5],[4,5,6,7,8]));
